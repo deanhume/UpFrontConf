@@ -2,8 +2,8 @@
     var insertAfter, bind, unbind, getHashParam, clearHashParam, applyTrackingParams, scripts, windowOrigin, ie, EventsWidget, addClass, removeClass,
         DATA_ATTRIBUTES = ['width', 'height', 'reference'],
         WIDGETS_URL_FRAGMENT = '/widgets/web/',
-        STYLESHEET_URL = '/widgets/stylesheets/overlay.css?version=1',
-        LOADER_URL = '/widgets/images/loader_light.svg',
+        STYLESHEET_URL = '',
+        LOADER_URL = '',
         OVERLAY_HEIGHT = 780,
         OVERLAY_WIDTH = 692,
         DEFAULT_EVENTS_HEIGHT = '415px',
@@ -15,7 +15,7 @@
         OVERLAY_MARGIN = 20;
 
     scripts = document.getElementsByTagName( 'script' );
-    windowOrigin = window.location.toString().match(/(https?:\/\/\w.*?)\/.*/)[1];
+    windowOrigin = window.location.toString(); //.match(/(https?:\/\/\w.*?)\/.*/)[1];
 
     insertAfter = function(parentGuest, childGuest) {
         if (parentGuest.nextSibling) {
@@ -103,7 +103,7 @@
     EventsWidget = function() {
         var _this = this;
         this.scriptTag = scripts[ scripts.length - 1 ];
-        this.hostName = this.scriptTag.src.match(new RegExp('https?://[^/]*'))[0];
+        this.hostName = '';//this.scriptTag.src.match(new RegExp('https?://[^/]*'))[0];
         this.populateOptions();
         bind(window, 'message', function(){
             _this.onMessage.apply(_this, arguments);
