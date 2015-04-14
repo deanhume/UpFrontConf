@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 						height: 900
 					},
 					{
-						width: 500,
+						width: 320,
 						height: 500
 					}]
 				},
