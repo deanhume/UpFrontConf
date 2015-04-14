@@ -24,6 +24,7 @@ module.exports = function (grunt) {
 			dist: {
 				options: {
 					base: './',
+					minify: true,
 					dimensions: [{
 						width: 1300,
 						height: 900
@@ -34,7 +35,7 @@ module.exports = function (grunt) {
 					}]
 				},
 				files: [
-				{src: ['index.html'], dest: 'after.html'}
+				{src: ['index-critical.html'], dest: 'after.html'}
 				]
 			}
 		}
