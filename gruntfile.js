@@ -1,13 +1,25 @@
 module.exports = function (grunt) {
 
 	grunt.initConfig({
-		// cssmin: {
-		// 	dist: {
-		// 		files: [
-		// 		{ src: 'stylesheets/home.css', dest: 'stylesheets/home.min.css' }
-		// 		]
-		// 	}
-		// },
+		responsive_images: {
+		    myTask: {
+		      options: {
+		      	engine: "im",
+		        sizes: [{
+		          name: "mobile",
+		          width: 131,
+		          height: 131,
+		          quality: 80
+		        }]
+		      },
+		      files: [{
+		        expand: true,
+		        src: ['img/**.{jpg,gif,png}'],
+		        cwd: './',
+		        dest: './'
+		      }]
+		    }
+		  },
 		critical: {
 			dist: {
 				options: {
@@ -30,9 +42,9 @@ module.exports = function (grunt) {
 
     // Load the plugins
     grunt.loadNpmTasks('grunt-critical');
-    //grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-responsive-images');
 
     // Default tasks.
-    grunt.registerTask('default', ['critical']);
+    grunt.registerTask('default', ['critical', 'responsive_images']);
 
 };
