@@ -1,0 +1,3 @@
+test results before - http://www.webpagetest.org/result/150428_QS_VSX/
+
+test results after - http://www.webpagetest.org/result/150428_QV_VF0/
