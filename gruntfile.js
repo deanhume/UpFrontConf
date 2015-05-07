@@ -32,7 +32,7 @@ module.exports = function (grunt) {
 			}
 		},
 
-		//Create mobile images
+		// Create mobile images
 		responsive_images: {
 			myTask: {
 				options: {
@@ -51,14 +51,29 @@ module.exports = function (grunt) {
 					dest: './'
 				}]
 			}
-		}
+		},
+
+		// Minify HTML
+		htmlmin: {                            
+		    dist: {                                 
+		      options: {                              
+		        removeComments: true,
+		        collapseWhitespace: true
+		      },
+		      files: {                  
+		        'after.html': 'after.html'
+		      }
+		    }
+		  }
+
 	});
 
     // Load the plugins
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-critical');
     grunt.loadNpmTasks('grunt-responsive-images');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
     // Default tasks.
-    grunt.registerTask('default', ['uncss', 'critical', 'responsive_images']);
+    grunt.registerTask('default', ['uncss', 'critical', 'responsive_images', 'htmlmin']);
 };
